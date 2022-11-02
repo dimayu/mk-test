@@ -1,0 +1,199 @@
+@import "../../../styles/smart-grid";
+@import "../../../styles/helpers/variables";
+
+.js-tab__content.hide {
+  display: none;
+}
+
+.js-tab__content.show {
+  display: block;
+}
+
+.input {
+  width: 351px;
+  height: 52px;
+  left: 70px;
+  top: 364px;
+  border: 1px solid $color-grey-2;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  color: $color-black;
+
+  &::placeholder {
+    color: $color-grey-2;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $color-blue;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-blue;
+  border-radius: 16px;
+  font-size: 18px;
+  color: #fff;
+  padding: 14px 24px;
+
+  &:hover {
+    background-color: $color-blue-hover;
+  }
+
+  &:active {
+    background-color: $color-blue-active;
+  }
+}
+
+
+.btn-white {
+  background-color: #fff;
+  color: $color-black;
+
+  &:hover {
+    background-color: #fff;
+    color: $color-blue-hover;
+  }
+
+  &:active {
+    background-color: #fff;
+    color: $color-blue-active;
+  }
+}
+
+.product {
+  max-width: 846px;
+  margin-top: 80px;
+
+  &__tabs {
+    display: flex;
+
+    &__tab {
+      background: $color-grey-2;
+      border-radius: 20px 20px 0 0;
+      padding: 20px 24px;
+      font-weight: 500;
+      font-size: 22px;
+      color: $color-black;
+      cursor: pointer;
+
+      &.js-tab-active {
+        background-color: #fff;
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__content {
+    background: #FFFFFF;
+    border-radius: 0 20px 20px 20px;
+    padding: 40px 60px;
+    position: relative;
+
+    &__items {
+      display: flex;
+      border-bottom: 1px solid $color-grey-2;
+      padding-bottom: 24px;
+    }
+
+    &__img {
+      position: relative;
+      left: -60px;
+    }
+
+    &__text {
+      width: 70%;
+
+      &--title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 26px;
+        color: $color-black;
+      }
+
+      p {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__description {
+      margin: 40px 0 0 0;
+
+      &--title {
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      &--list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        li {
+          width: 50%;
+          margin-bottom: 18px;
+          box-sizing: border-box;
+          position: relative;
+          padding-left: 36px;
+          
+          &::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: url("../img/sprites/sprite.svg#bike");
+          }
+
+          &:nth-child(2n) {
+            order: 1;
+          }
+        }
+
+        &-ol {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 20px;
+          padding-left: 16px;
+
+          li {
+            width: 50%;
+            margin-bottom: 18px;
+            box-sizing: border-box;
+
+            &:nth-child(2n) {
+              order: 1;
+            }
+          }
+        }
+      }
+
+      &--form {
+        display: flex;
+
+        .btn {
+          margin-left: 24px;
+        }
+      }
+
+      &--footer {
+        display: flex;
+        margin-top: 40px;
+        box-shadow: 0 10px 40px rgba(12, 12, 12, 0.1);
+        border-radius: 20px;
+        padding: 30px 36px;
+        box-sizing: border-box;
+
+        .btn {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}
