@@ -1,6 +1,7 @@
 @import "base/_general.scss";
 @import "base/_fonts.scss";
 @import "smart-grid.scss";
+@import "../blocks/modules/product/product";
 
 .wrapper {
   @include wrapper();
