@@ -20,6 +20,10 @@
   box-sizing: border-box;
   color: $color-black;
 
+  @include md-block() {
+    width: 100%;
+  }
+
   &::placeholder {
     color: $color-grey-2;
   }
@@ -39,6 +43,13 @@
   font-size: 18px;
   color: #fff;
   padding: 14px 24px;
+
+  @include md-block() {
+    width: 100%;
+    font-size: 14px;
+
+    padding: 17px;
+  }
 
   &:hover {
     background-color: $color-blue-hover;
@@ -69,17 +80,41 @@
   max-width: 846px;
   margin-top: 80px;
 
+  @include md-block() {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
   &__tabs {
     display: flex;
 
+    @include md-block() {
+      display: none;
+    }
+
     &__tab {
       background: $color-grey-2;
-      border-radius: 20px 20px 0 0;
+      border-radius: 0;
       padding: 20px 24px;
       font-weight: 500;
       font-size: 22px;
       color: $color-black;
       cursor: pointer;
+
+      @include md-block() {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 0;
+        padding: 20px;
+        font-size: 20px;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
 
       &.js-tab-active {
         background-color: #fff;
@@ -94,25 +129,49 @@
     padding: 40px 60px;
     position: relative;
 
+    @include md-block() {
+      display: none;
+      border-radius: 0;
+      padding: 30px 20px;
+    }
+
     &__items {
       display: flex;
       border-bottom: 1px solid $color-grey-2;
       padding-bottom: 24px;
+
+      @include md-block() {
+        flex-wrap: wrap;
+        padding-bottom: 14px;
+      }
     }
 
     &__img {
       position: relative;
       left: -60px;
+
+      @include md-block() {
+        position: static;
+      }
     }
 
     &__text {
       width: 70%;
+
+      @include md-block() {
+        width: 100%;
+      }
 
       &--title {
         margin-bottom: 20px;
         font-weight: 700;
         font-size: 26px;
         color: $color-black;
+
+        @include md-block() {
+          margin-top: 12px;
+          font-size: 24px;
+        }
       }
 
       p {
@@ -123,10 +182,19 @@
     &__description {
       margin: 40px 0 0 0;
 
+      @include md-block() {
+        margin-top: 30px;
+      }
+
       &--title {
         margin-bottom: 20px;
         font-weight: 500;
         font-size: 18px;
+
+        @include md-block() {
+          margin-bottom: 16px;
+          font-size: 16px;
+        }
       }
 
       &--list {
@@ -134,12 +202,21 @@
         flex-wrap: wrap;
         margin-bottom: 20px;
 
+        @include md-block() {
+          margin-bottom: 14px;
+        }
+
         li {
           width: 50%;
           margin-bottom: 18px;
           box-sizing: border-box;
           position: relative;
           padding-left: 36px;
+
+          @include md-block() {
+            width: 100%;
+            margin-bottom: 15px;
+          }
           
           &::before {
             content: '';
@@ -153,6 +230,10 @@
 
           &:nth-child(2n) {
             order: 1;
+
+            @include md-block() {
+              order: 0;
+            }
           }
         }
 
@@ -162,13 +243,26 @@
           margin-bottom: 20px;
           padding-left: 16px;
 
+          @include md-block() {
+            margin-bottom: 14px;
+          }
+
           li {
             width: 50%;
             margin-bottom: 18px;
             box-sizing: border-box;
 
+            @include md-block() {
+              width: 100%;
+              margin-bottom: 15px;
+            }
+
             &:nth-child(2n) {
               order: 1;
+
+              @include md-block() {
+                order: 0;
+              }
             }
           }
         }
@@ -177,8 +271,17 @@
       &--form {
         display: flex;
 
+        @include md-block() {
+          flex-direction: column;
+        }
+
         .btn {
           margin-left: 24px;
+
+          @include md-block() {
+            margin-left: 0;
+            margin-top: 14px;
+          }
         }
       }
 
@@ -194,6 +297,33 @@
           margin-right: 12px;
         }
       }
+    }
+  }
+
+  &-mobile {
+    display: none;
+
+    @include md-block() {
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.show-text {
+  .product__content{
+    display: block;
+  }
+
+  .product__tabs__tab {
+    &--title {
+      color: $color-blue;
+    }
+
+    svg {
+      transform: rotate(-180deg);
     }
   }
 }

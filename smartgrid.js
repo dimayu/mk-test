@@ -16,15 +16,15 @@ let settings = {
         },
         md: {
             width: '940px',
-            fields: '25px'
+            fields: '20px'
         },
         sm: {
             width: '780px',
-            fields: '15px'
+            fields: '20px'
         },
         xxs: {
             width: '440px',
-            fields: '10px'
+            fields: '20px'
         }
     }
 };

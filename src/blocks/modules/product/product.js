@@ -1,28 +1,28 @@
-window.addEventListener('DOMContentLoaded', function() {
-    let tab = document.querySelectorAll('.js-tab'),
-        header = document.querySelector('.js-tabs'),
-        tabContent = document.querySelectorAll('.js-tab__content');
+window.addEventListener("DOMContentLoaded", function() {
+    let tab = document.querySelectorAll(".js-tab"),
+        header = document.querySelector(".js-tabs"),
+        tabContent = document.querySelectorAll(".js-tab__content");
 
     function hideTabContent(a) {
         for (let i = a; i < tabContent.length; i++) {
-            tabContent[i].classList.remove('show');
-            tabContent[i].classList.add('hide');
+            tabContent[i].classList.remove("show");
+            tabContent[i].classList.add("hide");
         }
     }
 
     hideTabContent(1);
 
     function showTabContent(b) {
-        if (tabContent[b].classList.contains('hide')) {
-            tabContent[b].classList.remove('hide');
-            tabContent[b].classList.add('show');
+        if (tabContent[b].classList.contains("hide")) {
+            tabContent[b].classList.remove("hide");
+            tabContent[b].classList.add("show");
         }
     }
 
-    header.addEventListener('click', function(event) {
+    header.addEventListener("click", function(event) {
         let target = event.target;
 
-        if (target && target.classList.contains('js-tab')) {
+        if (target && target.classList.contains("js-tab")) {
 
             for(let i = 0; i < tab.length; i++) {
                 if (target == tab[i]) {
@@ -33,12 +33,28 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        if(target.classList.contains('js-tab')) {
+        if(target.classList.contains("js-tab")) {
             for(let i = 0; i < tab.length; i++) {
-                tab[i].classList.remove('js-tab-active');
+                tab[i].classList.remove("js-tab-active");
             }
             // Добавляем тому на который нажали
-            target.classList.add('js-tab-active');
+            target.classList.add("js-tab-active");
         }
+    });
+});
+
+
+//mobile product
+const questions = document.querySelectorAll(".js-tabs-mobile");
+
+questions.forEach(function(question){
+    const button = question.querySelector(".js-tab-mobile");
+    button.addEventListener("click", function(){
+        questions.forEach(function(item){
+            if(item !== question){
+                item.classList.remove("show-text");
+            }
+        });
+        question.classList.toggle("show-text");
     });
 });

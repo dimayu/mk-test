@@ -18,6 +18,10 @@ body {
   background-color: #F4F4F4;
   overflow-x: hidden;
   height: 100%;
+
+  @include md-block() {
+    font-size: 14px;
+  }
 }
 
 a {
