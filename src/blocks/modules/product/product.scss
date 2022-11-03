@@ -78,39 +78,50 @@
 
 .product {
   max-width: 846px;
+  display: flex;
+  position: relative;
   margin-top: 80px;
 
   @include md-block() {
+    flex-direction: column;
     margin-top: 40px;
     margin-bottom: 30px;
   }
 
   &__tabs {
-    display: flex;
-
     @include md-block() {
-      display: none;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
 
     &__tab {
+      width: auto;
+      display: inline-block;
       background: $color-grey-2;
-      border-radius: 0;
+      border-radius: 20px 20px 0 0;
       padding: 20px 24px;
       font-weight: 500;
       font-size: 22px;
       color: $color-black;
       cursor: pointer;
+      
+      svg {
+        display: none;
+      }
 
       @include md-block() {
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #fff;
-        border-radius: 0;
         padding: 20px;
         font-size: 20px;
+        border-radius: 0;
+        overflow: hidden;
 
         svg {
+          display: block;
           width: 24px;
           height: 24px;
         }
@@ -124,13 +135,16 @@
   }
 
   &__content {
+    position: absolute;
+    left: 0;
+    top: 73px;
     background: #FFFFFF;
     border-radius: 0 20px 20px 20px;
     padding: 40px 60px;
-    position: relative;
+    display: none;
 
     @include md-block() {
-      display: none;
+      position: static;
       border-radius: 0;
       padding: 30px 20px;
     }
@@ -270,6 +284,7 @@
 
       &--form {
         display: flex;
+        position: relative;
 
         @include md-block() {
           flex-direction: column;
@@ -299,17 +314,6 @@
       }
     }
   }
-
-  &-mobile {
-    display: none;
-
-    @include md-block() {
-      display: block;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-  }
 }
 
 .show-text {
@@ -318,6 +322,8 @@
   }
 
   .product__tabs__tab {
+    background-color: #fff;
+
     &--title {
       color: $color-blue;
     }
@@ -326,4 +332,10 @@
       transform: rotate(-180deg);
     }
   }
+}
+
+.error {
+  position: absolute;
+  top: 52px;
+  left: 16px;
 }

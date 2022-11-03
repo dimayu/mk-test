@@ -1,54 +1,8 @@
-window.addEventListener("DOMContentLoaded", function() {
-    let tab = document.querySelectorAll(".js-tab"),
-        header = document.querySelector(".js-tabs"),
-        tabContent = document.querySelectorAll(".js-tab__content");
-
-    function hideTabContent(a) {
-        for (let i = a; i < tabContent.length; i++) {
-            tabContent[i].classList.remove("show");
-            tabContent[i].classList.add("hide");
-        }
-    }
-
-    hideTabContent(1);
-
-    function showTabContent(b) {
-        if (tabContent[b].classList.contains("hide")) {
-            tabContent[b].classList.remove("hide");
-            tabContent[b].classList.add("show");
-        }
-    }
-
-    header.addEventListener("click", function(event) {
-        let target = event.target;
-
-        if (target && target.classList.contains("js-tab")) {
-
-            for(let i = 0; i < tab.length; i++) {
-                if (target == tab[i]) {
-                    hideTabContent(0);
-                    showTabContent(i);
-                    break;
-                }
-            }
-        }
-
-        if(target.classList.contains("js-tab")) {
-            for(let i = 0; i < tab.length; i++) {
-                tab[i].classList.remove("js-tab-active");
-            }
-            // Добавляем тому на который нажали
-            target.classList.add("js-tab-active");
-        }
-    });
-});
-
-
-//mobile product
-const questions = document.querySelectorAll(".js-tabs-mobile");
+//tabs
+const questions = document.querySelectorAll(".js-tabs");
 
 questions.forEach(function(question){
-    const button = question.querySelector(".js-tab-mobile");
+    const button = question.querySelector(".js-tab");
     button.addEventListener("click", function(){
         questions.forEach(function(item){
             if(item !== question){
@@ -58,3 +12,35 @@ questions.forEach(function(question){
         question.classList.toggle("show-text");
     });
 });
+
+//validation
+const formOne = document.querySelector("#form-1");
+const formTwo = document.querySelector("#form-2");
+const fieldsOne = formOne.querySelectorAll(".input");
+const fieldsTwo = formTwo.querySelectorAll(".input");
+
+function validationForm (form, fields) {
+    form.addEventListener("submit", function () {
+        event.preventDefault();
+
+        for (let i = 0; i < fields.length; i++) {
+            let errors = form.querySelectorAll(".error");
+
+            for (let i = 0; i < errors.length; i++) {
+                errors[i].remove();
+            }
+
+            if (!fields[i].value) {
+                console.log("field is blank", fields[i]);
+                let error = document.createElement("div");
+                error.className = "error";
+                error.style.color = "red";
+                error.innerHTML = "Введите текст";
+                form[i].parentElement.insertBefore(error, fields[i]);
+            }
+        }
+    });
+}
+
+validationForm (formOne, fieldsOne);
+validationForm (formTwo, fieldsTwo);
